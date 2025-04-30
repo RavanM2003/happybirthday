@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="az">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ad Günün Mübarək, Nərmin!</title>
+
+    <!-- Tailwind CSS (Prod-ready) -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+    <!-- Howler.js for audio -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+
+    <!-- Typed.js for text effect -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  
+    <link rel="shortcut icon" href="/hbd.png" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            scroll-behavior: smooth;
+            background: #fff0f6;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .section {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: .25;
+            z-index: 0;
+        }
+
+        .content {
+            position: relative;
+            z-index: 10;
+            max-width: 700px;
+            color: #4c1d95;
+        }
+
+        .btn {
+            margin-top: 1.5rem;
+            padding: .75rem 1.5rem;
+            background: #d946ef;
+            color: white;
+            border-radius: .5rem;
+            transition: transform .2s;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .7);
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            max-width: 90%;
+        }
+
+        /* Play/Pause Button */
+        .play-pause-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: .75rem 1rem;
+            background: #d946ef;
+            color: white;
+            border-radius: 100%;
+            cursor: pointer;
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Audio element (SoundHelix sample MP3) -->
+    <audio id="bgMusic" loop src="./music.mp3"></audio>
+
+    <!-- Play/Pause button -->
+    <button id="playPauseBtn" class="play-pause-btn" onclick="toggleMusic()">&#10074;&#10074;</button>
+
+    <!-- Sections -->
+
+    <!-- Sections -->
+    <section id="sec1" class="section" style="--bg:url('https://source.unsplash.com/1600x900/?birthday')"
+        data-aos="fade-up">
+        <div class="content">
+            <h1 class="text-6xl">Doğum Günün Mübarək, Nərmin!</h1>
+            <p class="mt-4">Təbrikləəərr🌸✨🥳🎂
+
+                Mişkam, doğum günün mübarək! 💖🎉 Bu xüsusi gündə səninlə olmaq mənim üçün böyük bir şərəfdir. Sənə bu
+                yeni yaşında sonsuz xoşbəxtlik, sağlamlıq, uğur və həyatın bütün gözəlliklərini diləyirəm. 🎈🎁 Bu gün
+                yalnızca sənin doğum günün deyil, həm də sənə olan minnətdarlığımı, sevgimi və hörmətimi bir daha ifadə
+                etmək üçün gözəl bir fürsətdir. Yaxşı ki, həyatımda varsan! Yaxşı ki, səni tanımışam. Həyatımda olduğun
+                üçün çox şanslıyam və bunu hər an hiss edirəm. Həyat səninlə daha gözəl, daha dərin və daha qiymətlidir.
+            </p>
+            <button class="btn" onclick="openModal(1)">Sürpriz!</button>
+            <a href="#sec2" class="btn">Sonrakı</a>
+        </div>
+    </section>
+
+    <section id="sec2" class="section" style="--bg:url('https://source.unsplash.com/1600x900/?cake')"
+        data-aos="fade-up">
+        <div class="content">
+            <h2 class="text-5xl">Şirin Anlar</h2>
+            <p class="my-5">Həmişə belə gülərüz 😊, mehriban 🤗, səmimi 💞 və gözəl ✨ qalasan! Sənin güvənli, enerjili
+                və pozitiv ruhun hər zaman ətrafındakı insanlara ilham verir. Hər birimizin həyatına belə bir insanın
+                daxil olması böyük bir hədiyyədir. Mənə öyrətdiyin çox şey var və sənin yanında olmaq həmişə çox xoşdur.
+                Səninlə hər anı bölüşmək, gülmək, əylənmək və bir-birimizin yanında olmaq həyatı daha dəyərli edir.</p>
+            <button class="btn" onclick="openModal(2)">Gif</button>
+            <a href="#sec3" class="btn">Sonrakı</a>
+        </div>
+    </section>
+
+    <section id="sec3" class="section" style="--bg:url('https://source.unsplash.com/1600x900/?flowers')"
+        data-aos="fade-up">
+        <div class="content">
+            <h2 class="text-5xl">Çiçəklər Gibi</h2>
+            <p class="my-5">Bu xüsusi gündə sənə dünyadakı və qəlbimdəki bütün xoş arzularımı göndərirəm! 💌💖 Ürəyində
+                nə qədər arzu varsa, hamısı bu yaşında həyata keçsin, inşAllah! 🙏💫 Həyatın bütün sahələrində istədiyin
+                hər şeyi qazanmaq, əzmlə arzuladığın hər bir hədəfə çatmaq sənə nəsib olsun. Bu yaşın sənə ən böyük
+                sevinci və müvəffəqiyyəti gətirsin. İnanıram ki, sən hər zaman özünə inamla irəliləyib, həyatın ən gözəl
+                anlarını yaşamağa davam edəcəksən!</p>
+            <button class="btn" onclick="openModal(3)">Fakt</button>
+            <a href="#sec4" class="btn">Sonrakı</a>
+        </div>
+    </section>
+
+    <section id="sec4" class="section" style="--bg:url('https://source.unsplash.com/1600x900/?smile')"
+        data-aos="fade-up">
+        <div class="content">
+            <h2 class="text-5xl">Xoşbəxt Anlar</h2>
+            <p class="my-5">İnanıram ki, sən hər zaman müsbət enerji, güc və sevgi ilə ətrafındakılara ilham verəcəksən.
+                Sənin gülüşün və ətrafındakı insanlara olan dərin sevgini həmişə hiss edirik və buna görə çox şanslıyıq.
+                💐
+
+                Bu xüsusi günündə və bütün il boyu həyatının ən gözəl anlarını yaşamanı, hər gününü dolu-dolu
+                keçirməyini diləyirəm! ✨ Hər zaman yanındayam, səni sevənlər həmişə səninlə olacaq və sən hər zaman
+                gülümsəyib, həyatın ən yaxşı tərəflərini görməyə davam edəcəksən! 🎉</p>
+            <a href="#sec5" class="btn">Sonrakı</a>
+        </div>
+    </section>
+
+    <section id="sec5" class="section" style="--bg:url('https://source.unsplash.com/1600x900/?friends')"
+        data-aos="fade-up">
+        <div class="content">
+            <h2 class="text-5xl">Ailə və Dostlar</h2>
+            <p class="my-5">Ən düşərli, ən sevincli, ən xoş yaşın olsun! 🎊🥰 Bu il sənə yalnız yaxşı xəbərlər, gözəl
+                təcrübələr və möhtəşəm anlar gətirsin. Həyatın hər sahəsində uğurlar, qələbələr və gözəl dəyişikliklər
+                sənə qismət olsun! Həmçinin, sənin hər zaman ətrafında dostların, ailən və sənə dəyər verən insanlar
+                olsun ki, onlarla birlikdə həyatın ən gözəl anlarını paylaşasınız. Sevdiklərinin və səni sevənlərin
+                yanından əskik olmayasan! 💕👨‍👩‍👧‍👦</p>
+            <a href="#sec6" class="btn">Sonrakı</a>
+        </div>
+    </section>
+
+    <section id="sec6" class="section" style="--bg:url('https://source.unsplash.com/1600x900/?future')"
+        data-aos="fade-up">
+        <div class="content">
+            <h2 class="text-5xl">Gələcəyə Ümidlə</h2>
+            <p class="my-5">Yeni yaşınla həyatın bütün gözəlliklərini kəşf etməyə davam et. Gələcəyə ümidlə bax, həyatın
+                sənə bütün arzuladığın gözəllikləri versin. İnşallah, hər addımında daha çox uğurlar, yeni təcrübələr və
+                gözəl anlar sənə qismət olacaq. Həyatına yeni bir başlanğıc, yeni hədəflər və daha çox gözəl anlar
+                gətirsin. Gələcəkdə qarşıya çıxan hər yeni fürsətə başını dik tutaraq və inamla yanaş. Həyatın sənə hər
+                zaman ən yaxşısını versin və sən hər zaman özünü ən yaxşı şəkildə ifadə edə biləsən. Həyatın sənə öz
+                hədəflərinə çatmaq üçün ən güclü təkan verəcək.</p>
+            <a href="#sec7" class="btn">Sonrakı</a>
+        </div>
+    </section>
+
+    <section id="sec7" class="section" style="--bg:url('https://source.unsplash.com/1600x900/?celebration')"
+        data-aos="fade-up">
+        <div class="content">
+            <h2 class="text-5xl">Bayrama Devam!</h2>
+            <p class="my-5">Bu gün yalnızca sənin doğum günün deyil, həm də həyatın hər anını dəyərləndirdiyimiz, gözəl
+                xatirələr yaratdığımız bir gündür! 🎂 Həyatını bayram kimi yaşa, hər anını dəyərləndir və hər gününü
+                sevgi ilə dolu keçir. Gələcəkdə sənə yalnız xoşbəxtlik, sevgi və uğur qismət olsun! Bayrama davam edək,
+                çünki bu gün bizim xüsusi günümüzdür! 🎉</p>
+            <a href="#secret" class="btn">Sonrakı</a>
+        </div>
+    </section>
+
+    <section id="secret" class="section bg-white" data-aos="fade-up">
+        <div class="content text-pink-600">
+            <h2 class="text-5xl">Gizli Mesaj</h2>
+            <button class="btn" onclick="revealSecret()">Aç</button>
+            <p id="secretText" class="mt-4 hidden text-lg">Bu hissəni mayın 4-dəki görüşdən sonra yazacağam. Gözləməyə
+                dəyər!</p>
+        </div>
+    </section>
+
+    <!-- Global Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-box">
+            <div id="modalBody"></div>
+            <button class="btn mt-6" onclick="closeModal()">Bağla</button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({ once: true, duration: 800 });
+            // Autoplay music after load
+            setTimeout(() => document.getElementById('bgMusic').play().catch(() => { }), 500);
+        });
+
+        // Scroll helper
+        function scrollTo(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Secret reveal
+        function revealSecret() {
+            const now = new Date(), unlock = new Date('2025-05-05');
+            if (now < unlock) {
+                alert('Bu mesaj hələlik gizlidir. Bu hissəni mayın 4-dəki görüşdən sonra yazacam. Gözləməyə dəyər :)');
+            } else {
+                document.getElementById('secretText').classList.remove('hidden');
+            }
+        }
+
+        // Modal content definitions
+        const modalData = {
+            1: `
+    <p class="text-xl mb-4">Bu sayt yalnız sənin üçün hazırlandı!</p>
+    <img src="./sec2.gif" 
+         class="mx-auto w-full" 
+         style="max-width:300px;" 
+         alt="Surpriz GIF 1">`,
+            2: `
+    <p class="text-xl mb-4">Bu da ikinci sürpriz!</p>
+    <img src="./sec1.gif" 
+         class="mx-auto w-full" 
+         style="max-width:300px;" 
+         alt="Surpriz GIF 2">`,
+            3: `
+    <p class="text-lg">Fakt: Gülümsəmən bəzən bir otaqdakı bütün kədəri aparır!</p>`
+        };
+
+        function openModal(key) {
+            document.getElementById('modalBody').innerHTML = modalData[key] || '<p>Həssizlik!</p>';
+            document.getElementById('modal').classList.add('active');
+        }
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        // Play/Pause music
+        function toggleMusic() {
+            const music = document.getElementById('bgMusic');
+            const playPauseBtn = document.getElementById('playPauseBtn');
+            if (music.paused) {
+                music.play();
+                playPauseBtn.innerHTML = '&#10074;&#10074;';  // Pause symbol
+            } else {
+                music.pause();
+                playPauseBtn.innerHTML = '&#9654;';  // Play symbol
+            }
+        }
+    </script>
+</body>
+
+</html>
