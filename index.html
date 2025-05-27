@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ad Günün Mübarək, Nərmin!</title>
+    <title>404 Not Found</title>
 
     <!-- Tailwind CSS (Prod-ready) -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
@@ -23,7 +23,7 @@
     <!-- Typed.js for text effect -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-    <link rel="shortcut icon" href="/hbd.png" type="image/x-icon">
+    <!-- <link rel="shortcut icon" href="/hbd.png" type="image/x-icon"> -->
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@400;600&display=swap"
@@ -117,18 +117,14 @@
             z-index: 100;
         }
     </style>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
-<body>
-    <!-- Audio element (SoundHelix sample MP3) -->
-    <audio id="bgMusic" loop src="./music.mp3"></audio>
+<body id="body">
+    <!-- <audio id="bgMusic" loop src="./music.mp3"></audio>
 
-    <!-- Play/Pause button -->
     <button id="playPauseBtn" class="play-pause-btn" onclick="toggleMusic()">&#9654;</button>
 
-    <!-- Sections -->
-
-    <!-- Sections -->
     <section id="sec1" class="section" style="--bg:url('https://source.unsplash.com/1600x900/?birthday')"
         data-aos="fade-up">
         <div class="content">
@@ -235,7 +231,6 @@
         </div>
     </section>
 
-    <!-- Global Modal -->
     <div id="modal" class="modal">
         <div class="modal-box">
             <div id="modalBody"></div>
@@ -243,7 +238,6 @@
         </div>
     </div>
 
-    <!-- Scripts -->
     <script>
         // Initialize AOS
         document.addEventListener('DOMContentLoaded', () => {
@@ -301,7 +295,26 @@
                 playPauseBtn.innerHTML = '&#9654;';  // Play symbol
             }
         }
-    </script>
+    </script> -->
+
+    <main class="main">
+        <h1>4</h1>
+        <h1 class="X">
+            <span class="caution__tape text"></span>
+            <span class="caution__tape text"></span>
+        </h1>
+        <h1>4</h1>
+    </main>
+    <section class="background">
+        <div id="caution__tape__left" class="caution__tape left">
+            <p class="ERROR">ERROR</p>
+        </div>
+        <div id="caution__tape__center" class="caution__tape center">
+            <p class="PAGE_NOT_FOUND">PAGE NOT FOUND!</p>
+        </div>
+    </section>
+
+    <script src="./main.js"></script>
 </body>
 
 </html>
